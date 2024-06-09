@@ -10,6 +10,7 @@ public static class InfrastructureServicesExtension
     public static void RegisterInfraServices(this IServiceCollection app)
     {
         app.AddScoped<ITripRepo, TripRepo>();
+        app.AddScoped<IClientRepo, ClientRepo>();
         app.AddDbContext<TripdbContext>();
     }
 }
