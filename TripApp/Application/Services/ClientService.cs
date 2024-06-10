@@ -1,6 +1,7 @@
 using assignment_eight.TripApp.Application.Repo;
 using assignment_eight.TripApp.Application.Services.Interfaces;
 using assignment_eight.TripApp.Core.Model;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace assignment_eight.TripApp.Application.Services;
 
@@ -13,10 +14,8 @@ public class ClientService : IClientService
         _clientRepo = clientRepo;
     }
 
-    public async Task<Client> DeleteClient(int clientId)
+    public async Task<Boolean> DeleteClient(int clientId)
     {
-        var delete = await _clientRepo.DelClient(clientId);
-        //Logic to be added here.
-        return delete;
+        return await _clientRepo.DelClient(clientId);
     }
 }

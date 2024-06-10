@@ -15,9 +15,14 @@ namespace assignment_eight.TripApp.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteClient([FromHeader] int clientId)
+        public async Task<IActionResult> DeleteClient(int idClient)
         {
-            return Ok(await _clientservice.DeleteClient(clientId));
+            var isDeleted = await _clientservice.DeleteClient(idClient);
+            if (isDeleted != false)
+            {
+                return Ok(isDeleted);
+            }
+            return NotFound($"Client {idClient} not found");
         }
     }
 }
