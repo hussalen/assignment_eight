@@ -1,4 +1,5 @@
 using assignment_eight.TripApp.Application.Repo;
+using assignment_eight.TripApp.Controllers;
 using assignment_eight.TripApp.Infra;
 using assignment_eight.TripApp.Infra.Repo;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ public static class InfrastructureServicesExtension
     {
         app.AddScoped<ITripRepo, TripRepo>();
         app.AddScoped<IClientRepo, ClientRepo>();
+        app.AddScoped<IAssignClientToTripRepo, AssignClientToTripRepo>();
         app.AddDbContext<TripdbContext>();
     }
 }
